@@ -4,6 +4,10 @@ These rules govern how you write code in this repo. They are not suggestions.
 Follow them on every task unless the change is genuinely trivial (a typo, an
 obvious one-liner), in which case use judgment.
 
+_Sections 1-4 are adapted from
+[andrej-karpathy-skills](https://github.com/forrestchang/andrej-karpathy-skills)
+by forrestchang (MIT)._
+
 ## 1. Think before coding
 - Do not assume. If a request has multiple reasonable interpretations, list them
   and ask. Never pick one silently.

@@ -1,6 +1,6 @@
 # SpecRails Lite - Stop Vibe Coding (free starter)
 
-**The free taste of [SpecRails](https://gumroad.com/) - the spec-driven system that
+**The free taste of SpecRails - the spec-driven system that
 turns any AI coding agent into a disciplined senior engineer.**
 
 Vibe coding feels great for a weekend, then collapses: silent wrong assumptions,
@@ -37,12 +37,18 @@ VERIFY ->  review against a checklist, confirm definition of done
 3. **Surgical changes** - touch only what the task requires.
 4. **Goal-driven execution** - define verifiable success, loop until it passes.
 
+These four principles are adapted from
+[andrej-karpathy-skills](https://github.com/forrestchang/andrej-karpathy-skills) by
+forrestchang (MIT), which distills
+[Andrej Karpathy's observations](https://x.com/karpathy/status/2015883857489522876)
+on LLM coding pitfalls. SpecRails builds the 5-phase loop on top of them.
+
 ---
 
-## Get the full kit
+## The full kit (not released yet)
 
-SpecRails Lite is the foundation. The complete kit adds the parts that make the loop
-effortless to run every day:
+SpecRails Lite is the foundation. The complete kit, still in progress, adds the parts
+that make the loop effortless to run every day:
 
 - Copy-paste **workflow prompts** for all 5 phases (ALIGN/SPEC/PLAN/BUILD/VERIFY)
 - **Spec, plan, and tasks templates**
@@ -50,9 +56,8 @@ effortless to run every day:
 - A full **worked example** (one feature, idea to shipped, every phase shown)
 - **Adapters** for Claude Code, Cursor, and Codex
 
-**[Get SpecRails - the complete system ->](https://gumroad.com/)**
-
 ---
 
 ## License
-This free starter is MIT licensed - use it anywhere. See [`LICENSE`](./LICENSE).
+This free starter is MIT licensed - use it anywhere. See [`LICENSE`](./LICENSE),
+which also carries the notice for the adapted Karpathy guidelines.
