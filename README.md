@@ -1,63 +1,111 @@
-# SpecRails Lite - Stop Vibe Coding (free starter)
+# SpecRails
 
-**The free taste of SpecRails - the spec-driven system that
-turns any AI coding agent into a disciplined senior engineer.**
-
-Vibe coding feels great for a weekend, then collapses: silent wrong assumptions,
-800 lines where 80 would do, "improvements" to code you never touched, and an
-unmaintainable mess by month three.
-
-SpecRails fixes that with one idea: **remove ambiguity and define "done" before the
-agent writes a line.** This free starter gives you the foundation. The full kit
-gives you the whole system.
-
----
-
-## What's free here
-
-- [`CLAUDE.md`](./CLAUDE.md) - the four-principle guidelines file. Drop it into any
-  repo and your agent immediately stops overengineering and starts making surgical,
-  scoped changes. Works as `AGENTS.md` for Cursor/Codex too.
-- The methodology in a nutshell (below).
-
-## The 5-phase loop (overview)
+**A spec-driven loop for AI coding agents.** Five commands that make the agent ask
+before it guesses, write down what "done" means, build in small tested steps, and
+review its own work honestly. Free and MIT licensed.
 
 ```
-ALIGN  ->  kill ambiguity before any code is written
-SPEC   ->  write down what success looks like, verifiably
-PLAN   ->  break it into small, shippable vertical slices
-BUILD  ->  red-green-refactor, surgical, nothing speculative
-VERIFY ->  review against a checklist, confirm definition of done
+/specrails:align   ->  question the request until nothing is ambiguous
+/specrails:spec    ->  write verifiable acceptance criteria and what's out of scope
+/specrails:plan    ->  slice the work into small steps, each with its own check
+/specrails:build   ->  build one slice, test first, touching only what it needs
+/specrails:verify  ->  code review, a delete-list, and a definition-of-done check
 ```
 
-## The four principles (the heart of it)
+## Why
 
-1. **Think before coding** - don't assume; list interpretations and ask.
-2. **Simplicity first** - minimum code for the stated problem; nothing speculative.
-3. **Surgical changes** - touch only what the task requires.
-4. **Goal-driven execution** - define verifiable success, loop until it passes.
+Left alone, a coding agent fills gaps with assumptions, writes far more code than
+the task needs, "improves" code you never asked it to touch, and stops when the
+work *feels* finished. SpecRails fixes the cause: it removes ambiguity and defines
+done before any code is written.
 
-These four principles are adapted from
+## Install (Claude Code)
+
+```
+/plugin install specrails --marketplace upilup/specrails-lite
+```
+
+On Claude Code older than 2.1.275, use two steps:
+
+```
+/plugin marketplace add upilup/specrails-lite
+/plugin install specrails@specrails
+```
+
+Then, once per project, add the engineering guidelines to your `CLAUDE.md` so they
+apply to every task:
+
+```
+/specrails:setup
+```
+
+## How a feature goes
+
+```
+/specrails:align Add discount codes to the cart total
+```
+
+The agent reads the relevant code first, then asks questions you'd otherwise find
+out the hard way: where do codes come from, percent or fixed, what happens with an
+unknown code, how to round. When nothing is left to ask it writes a summary and you
+move on:
+
+```
+/specrails:spec      # review and approve the acceptance criteria
+/specrails:plan      # review and approve the slices
+/specrails:build     # builds the next slice, test first
+/specrails:verify    # reviews it; repeat build + verify per slice
+```
+
+Each step saves its output in your project, so you can stop and pick up in a new
+session:
+
+```
+.specrails/discount-codes/
+  align.md   what was agreed and what's out of scope
+  spec.md    acceptance criteria you can test
+  plan.md    the slices and how each one is checked
+  tasks.md   the checklist, ticked only when checks pass
+```
+
+Commit `.specrails/` with your code so specs and plans stay with the project.
+
+From a real test run: after slice 1 of that discount feature, `/specrails:verify`
+passed the slice but flagged that the second code in the table returned `-8000`
+until slice 2 added fixed discounts, and said not to ship before then.
+
+## No tests in your project?
+
+SpecRails doesn't skip verification. During `/specrails:plan` it asks once: add the
+smallest test setup that fits your stack as the first slice, or check each slice by
+hand with exact steps and what you should see.
+
+## Other agents
+
+- **Agents that read `SKILL.md` skills:** the six folders in
+  [`plugins/specrails/skills/`](plugins/specrails/skills) are plain skills. Copy them
+  to wherever your agent loads skills from (see its docs).
+- **Anything else (Cursor, Codex and others):** copy [`CLAUDE.md`](CLAUDE.md) into
+  your repo, as `AGENTS.md` if your agent reads that, and paste a skill's text as a
+  prompt when you reach that phase.
+
+## More
+
+- [`GUIDE.md`](GUIDE.md) - the method behind each phase, in about ten minutes.
+- [`examples/`](examples) - one feature (login rate limiting) taken through every
+  phase.
+
+## Credits
+
+The four principles behind SpecRails (think before coding, simplicity first,
+surgical changes, goal-driven execution) are adapted from
 [andrej-karpathy-skills](https://github.com/forrestchang/andrej-karpathy-skills) by
 forrestchang (MIT), which distills
 [Andrej Karpathy's observations](https://x.com/karpathy/status/2015883857489522876)
-on LLM coding pitfalls. SpecRails builds the 5-phase loop on top of them.
-
----
-
-## The full kit (not released yet)
-
-SpecRails Lite is the foundation. The complete kit, still in progress, adds the parts
-that make the loop effortless to run every day:
-
-- Copy-paste **workflow prompts** for all 5 phases (ALIGN/SPEC/PLAN/BUILD/VERIFY)
-- **Spec, plan, and tasks templates**
-- **Code-review** and **definition-of-done** checklists
-- A full **worked example** (one feature, idea to shipped, every phase shown)
-- **Adapters** for Claude Code, Cursor, and Codex
-
----
+on LLM coding pitfalls. SpecRails adds the five-phase loop, the commands, the
+templates and the review gates.
 
 ## License
-This free starter is MIT licensed - use it anywhere. See [`LICENSE`](./LICENSE),
-which also carries the notice for the adapted Karpathy guidelines.
+
+MIT. See [`LICENSE`](LICENSE), which also carries the notice for the adapted
+Karpathy guidelines.

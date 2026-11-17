@@ -1,0 +1,15 @@
+{
+  "name": "specrails",
+  "description": "SpecRails: a spec-driven workflow for AI coding agents",
+  "owner": {
+    "name": "upilup",
+    "url": "https://github.com/upilup"
+  },
+  "plugins": [
+    {
+      "name": "specrails",
+      "source": "./plugins/specrails",
+      "description": "Align, spec, plan, build and verify commands that keep an AI coding agent scoped, simple and test-first."
+    }
+  ]
+}

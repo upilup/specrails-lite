@@ -1,0 +1,14 @@
+{
+  "name": "specrails",
+  "displayName": "SpecRails",
+  "version": "1.0.0",
+  "description": "A spec-driven loop for AI coding: align, spec, plan, build, verify. Removes ambiguity and defines done before the agent writes code.",
+  "author": {
+    "name": "upilup",
+    "url": "https://github.com/upilup"
+  },
+  "homepage": "https://github.com/upilup/specrails-lite",
+  "repository": "https://github.com/upilup/specrails-lite",
+  "license": "MIT",
+  "keywords": ["spec-driven-development", "workflow", "tdd", "code-review", "planning"]
+}
